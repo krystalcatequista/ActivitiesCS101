@@ -1,0 +1,54 @@
+---
+title: "Data Structures - Vectors and Lists"
+author: "Krystal Catequista"
+date: "2026-10-14"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+# Part A-Creating Vectors
+```{r}
+
+scores <- c(88, 92, 79, 95, 84)
+subjects <- c("Math", "Science", "English", "History", "PE")
+odds <- seq(1,19, by = 2)
+seq(0,1, length.out = 5)
+
+rep("A", 4)
+rep(c("A","B"), each = 2)
+rep(c("A", "B"), times = 2)
+
+age <- c (15, 28, 32, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 12, 42, 53, 41, 51, 35, 24, 33, 8)
+length(age)
+1 / age
+new_age <- c(age, 0, age)
+length(new_age)
+min(age)
+max(age)
+
+Question 1:
+a.How many data points?
+b.Find the reciprocal of age?
+  The reciprocal of age is calculated 1 by each element in the vector
+c.Assign also new_age <- c(age, 0, age). What happens to new_age?
+  It conatins 69 elements.
+d.Find the minimum and the maximum value of age.
+  The minimum value of age is 8 and the maximum value is 57.
+  
+Question 2:
+
+-rep(c("A","B"), each = 2) and rep(c("A","B"), times = 2) both produce a vector of length 4, but with different element orders.
+  The each arguments repeats every element the specified number of times producing "A" "A" "B" "B". In contrast, timmes repeats the entire vector, producing "A" "B" "A" "B".
+  
+
+  
+
+  
+
+
+
+```
+
