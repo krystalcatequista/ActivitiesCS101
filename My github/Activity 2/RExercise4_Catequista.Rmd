@@ -70,7 +70,7 @@ max(rivers)
 rivers_stats <- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers), sd(rivers), min(rivers), max(rivers))
 
 rivers_stats
-
+ 
 
 ```
 Question 2
