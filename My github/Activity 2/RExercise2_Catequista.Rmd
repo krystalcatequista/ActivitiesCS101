@@ -1,0 +1,137 @@
+---
+title: "Arithmetic Operations and Basic Data Types"
+author: "Krystal Catequista"
+date: "2026-09-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Part A - Arithmetic Operations
+```{r}
+a <- 17
+b <- 5
+a + b
+a - b
+a * b
+a /b
+
+a %% b
+a %/% b
+
+2 ^ 10
+
+17/5
+17 %% 5
+17 %/%5
+```
+
+Question 1
+-17/5 gives 3.4, 17 %% 5 gives the remainder of 2 while 17 %/%5 gives the whole number of 3.They are related because 17/5 is 3 and return the remainder 2.
+
+Question 2
+
+-The output of 10 %% 3 is 1 and the output of 10 %/% 3 is 3. The first gives the remainder while the second gives the whole number quotient.
+
+## Part B Basic Data Types
+
+```{r} 
+x <- 42
+y <- 42L
+z <- "42"
+w <- TRUE
+v <- 3 + 21
+
+typeof(x)
+typeof(y)
+typeof(z)
+typeof(w)
+typeof(v)
+
+class(x)
+class(y)
+class(z)
+class(w)
+class(v)
+
+mode(x)
+mode(y)
+mode(z)
+mode(w)
+mode(v)
+```
+
+Question 3 
+ -x <- 42 is stored as a double by default, while y <- 42L is explicitly stored as an integer. The L tells R to treat the number as an integer.
+
+Question 4 
+-Yes. typeof(), class(), and mode() can give different answers because they describe different aspects of an object. For example, x has typeof(x) as "double", but class(x) and mode(x) are both "numeric".
+
+
+## Part C- Type Conversion
+
+```{r}
+num_string <- "123"
+num_value <- as.numeric(num_string)
+
+typeof(num_value)
+class(num_value)
+mode(num_value)
+
+as.logical(0)
+as.logical(1)
+
+bad_string <- "hello123"
+as.numeric(bad_string)
+```
+
+
+Question 5 - R gives a warning and returns NA because it cannot convert "hello123" into a valid number. R continues running so that the rest of the code can still execute.warnings are ignored, NA values may cause incorrect or missing results without being noticed.
+
+Question 6 -I think as.logical(2) will produce TRUE, while as.logical(-1) will also produce TRUE.
+
+
+## Part D - Strings, phase() and paste()
+
+```{r}
+first_name <- "Juan"
+last_name <- "Dela Cruz"
+print(first_name)
+print(last_name)
+paste(first_name, last_name)
+paste0(first_name, last_name)
+
+paste(first_name, last_name, sep = "-")
+
+full_name <- paste(first_name, last_name)
+age <- 21
+
+paste0(full_name, " is ", age, " years old.")
+```
+
+Question 7
+paste() joins strings using a space by default, while paste0() joins them without adding a separator. That is why their results look different.
+
+Question 8
+No, it did not cause an error. paste0() automatically converts the numeric value of age into text when combining it with character strings. This allows the number and text to form one sentence.
+
+##Part E — Critical Thinking Challenge
+
+```{r}
+as.numeric("5") + 5
+5+5
+```
+
+Question 9
+R requires explicit conversion because a character string and a number have different data types. This helps prevent unexpected calculations and makes the programmer specify when text should be treated as a number.
+
+Question 10
+The column may contain numbers stored as character strings instead of numeric values. I would check its type using typeof() and class(), then inspect the values for spaces, letters, or other invalid characters. If the values are valid numbers, I would convert them using as.numeric() before using sum(). I would also check for warnings and NA values to avoid incorrect results.
+
+Conclusion 
+I learned that R has different data types, such as numeric, integer, character, logical, and complex. The functions typeof(), class(), and mode() help identify how values are represented. Conversion functions allow me to change values into the appropriate types for calculations. Understanding data types helps prevent errors when performing arithmetic or combining data.
+
+
+
