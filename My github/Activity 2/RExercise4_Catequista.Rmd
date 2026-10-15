@@ -1,0 +1,252 @@
+---
+title: "Data Structures - Vectors and Lists (Exercise 4)"
+author: "Krystal Catequista"
+date: "2026-10-14"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+```
+
+# Part A-Creating Vectors and List:
+```{r}
+
+worker_age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35, 24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26, 18)
+
+length(worker_age)
+
+min(worker_age)
+max(worker_age)
+
+worker_age[c(13:18, 33:35)]
+worker_age[c(10, 20, 30, 40)]
+
+worker_age[c(4, 14, 24)] <- 0
+worker_age
+
+```
+Question 1
+a. Create a vector for the worker’s age.
+  worker_age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35, 24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26, 18)
+
+b.How many data points?
+  There are 50 data points the vector worker_age.
+
+c. Find the minimum and the maximum value of worker’s age.
+  The minimum value is 17 and the maximum value is 61.
+
+d. Access the 13rd to 18th elements and 33th to 35th elements of worker’s Age.
+   worker_age[c(13:18, 33:35)]
+    [1] 27 22 37 34 19 20 33 41 53
+
+e. Access all but the 10th, 20th, 30th and 40th elements are not included.
+  worker_age[c(10, 20, 30, 40)]
+  [1] 29 49 51 41
+
+f. Modify the 4th, 14th, 24th, and 44th elements with value = 0.
+  worker_age[c(4, 14, 24)] <- 0
+   worker_age
+ [1] 34 28 22  0 27 18 52 39 42 29 35 31 27  0 37 34 19 20 57 49 50 37 46  0 17 37 43 53 41 51 35 24 33 41
+[35] 53 40 18 44 38 41 48 27 39 19 30 61 54 58 26 18
+
+Question 2
+```{r}
+data(rivers)
+
+
+
+length(rivers)
+sum(rivers)
+mean(rivers)
+median(rivers)
+var(rivers)
+sd(rivers)
+min(rivers)
+max(rivers)
+
+rivers_stats <- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers), sd(rivers), min(rivers), max(rivers))
+
+rivers_stats
+
+
+```
+Question 2
+a. Get the number of elements (length) in rivers, their sum (sum), mean (mean), median(median), variance(var), standard deviation(sd), minimum (min) and maximum (max)
+  length(rivers)
+[1] 141
+> sum(rivers)
+[1] 83357
+> mean(rivers)
+[1] 591.1844
+> median(rivers)
+[1] 425
+> var(rivers)
+[1] 243908.4
+> sd(rivers)
+[1] 493.8708
+> min(rivers)
+[1] 135
+> max(rivers)
+[1] 3710
+> 
+
+b. What is the result? The derived result must be in just one(1) vector name.
+  rivers_stats
+[1]    141.0000  83357.0000    591.1844    425.0000 243908.4086    493.8708    135.0000   3710.0000
+
+Question 3
+a. Create vectors according to the above table.
+
+```{r}
+
+power_ranking <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                   11, 12, 13, 14, 15, 16, 17, 18, 19,
+                   20, 21, 22, 23, 24, 25)
+
+celebrity_name <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2", "Tiger Woods", "Steven Spielberg","Howard Stern", "50 Cent", "Cast of the Sopranos", "Dan Brown", "Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas", "Elton John", "David Letterman", "Phil Mickelson", "J.K Rowling", "Brad Pitt", "Peter Jackson", "Dr. Phil McGraw", "Jay Lenon", "Celine Dion", "Kobe Bryant")
+
+pay <- c(
+  67, 90, 225, 110, 90, 332, 302, 41, 52, 88,
+  55, 44, 55, 40, 233, 34, 40, 47, 75, 25,
+  39, 45, 32, 40, 31
+)
+
+```
+  
+Question 4
+
+```{r}
+  vegetables <- list(
+  "Carrot", "Potato", "Cabbage", "Broccoli",
+  "Eggplant", "Squash", "Spinach", "Onion",
+  "Tomato", "Okra"
+)
+
+
+vegetables <- append(
+  vegetables, list("Corn", "Cucumber")
+)
+vegetables
+length(vegetables)
+
+vegetables <- append(
+  vegetables,
+  list("Lettuce", "Radish", "Celery", "Pepper"),
+  after = 5
+)
+vegetables
+
+length(vegetables)
+```
+Question 4
+Create a list of ten (10) vegetables you ate during your lifetime. If none, just list down the vegetables in your mind.
+  vegetables <- list(
+  "Carrot", "Potato", "Cabbage", "Broccoli",
+  "Eggplant", "Squash", "Spinach", "Onion",
+  "Tomato", "Okra"
+  
+a. Add 2 additional vegetables after the last vegetables in the list. What is the result?
+   vegetables <- append(
++   vegetables, list("Corn", "Cucumber")
++ )
+> vegetables
+[[1]]
+[1] "Carrot"
+
+[[2]]
+[1] "Potato"
+
+[[3]]
+[1] "Cabbage"
+
+[[4]]
+[1] "Broccoli"
+
+[[5]]
+[1] "Eggplant"
+
+[[6]]
+[1] "Squash"
+
+[[7]]
+[1] "Spinach"
+
+[[8]]
+[1] "Onion"
+
+[[9]]
+[1] "Tomato"
+
+[[10]]
+[1] "Okra"
+
+[[11]]
+[1] "Corn"
+
+[[12]]
+[1] "Cucumber"
+
+b.How many datapoints do you have?
+  I have 12 data points
+
+c. Add 4 additional vegetables after index 5. What is the result?
+vegetables <- append(
++   vegetables,
++   list("Lettuce", "Radish", "Celery", "Pepper"),
++   after = 5
++ )
+> vegetables
+[[1]]
+[1] "Carrot"
+
+[[2]]
+[1] "Potato"
+
+[[3]]
+[1] "Cabbage"
+
+[[4]]
+[1] "Broccoli"
+
+[[5]]
+[1] "Eggplant"
+
+[[6]]
+[1] "Lettuce"
+
+[[7]]
+[1] "Radish"
+
+[[8]]
+[1] "Celery"
+
+[[9]]
+[1] "Pepper"
+
+[[10]]
+[1] "Squash"
+
+[[11]]
+[1] "Spinach"
+
+[[12]]
+[1] "Onion"
+
+[[13]]
+[1] "Tomato"
+
+[[14]]
+[1] "Okra"
+
+[[15]]
+[1] "Corn"
+
+[[16]]
+[1] "Cucumber"
+
+d. How many datapoints does your vegetable list have?
+  I have 16 datapoints in my vegetables list
+
