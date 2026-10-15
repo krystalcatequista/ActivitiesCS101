@@ -248,5 +248,5 @@ vegetables <- append(
 [1] "Cucumber"
 
 d. How many datapoints does your vegetable list have?
-  I have 16 datapoints in my vegetables list
+  I have 16 datapoints in my vegetables list 
 
