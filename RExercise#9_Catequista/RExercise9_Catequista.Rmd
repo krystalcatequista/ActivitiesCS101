@@ -1,0 +1,121 @@
+---
+title: "Basic Operations of RProgramming"
+author: "Krystal Catequista"
+date: "2026-11-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Part A - Creating Data Frames
+Question #1
+```{r}
+shoes <- data.frame(
+  ShoeSize = c(6.5, 9.0, 8.5, 8.5, 10.5, 7.0, 9.5,
+               9.0, 13.0, 7.5, 10.5, 8.5, 12.0, 10.5,
+               13.0, 11.5, 8.5, 5.0, 10.0, 6.5, 7.5,
+               8.5, 10.5, 8.5, 10.5, 11.0, 9.0, 13.0),
+  Height = c(66, 68, 64.5, 65, 70, 64, 70,
+             71, 72, 64, 74.5, 67, 71, 71,
+             77, 72, 59, 62, 72, 66, 64,
+             67, 73, 69, 72, 70, 69, 70),
+  Gender = c("F", "F", "F", "F", "M", "F", "F",
+             "F", "M", "F", "M", "F", "M", "M",
+             "M", "M", "F", "F", "M", "F", "F",
+             "M", "M", "F", "M", "M", "M", "M")
+)
+
+write.csv(shoes, "shoesize.csv", row.names = FALSE)
+shoes
+
+shoesize <- read.csv("shoesize.csv")
+
+tail(shoesize, 5)
+
+str(shoes)
+head(shoes)
+
+dim(shoes)
+nrow(shoes)
+ncol(shoes)
+
+summary(shoes)
+str(shoes)
+
+female <- subset(shoes, Gender == "F",
+                 select = c(ShoeSize, Height))
+
+male <- subset(shoes, Gender == "M",
+               select = c(ShoeSize, Height))
+
+female
+male
+
+mean(shoes$ShoeSize)
+mean(shoes$Height)
+
+```
+e. What is the difference of the summary() from str() function?
+
+The str() function shows the structure and data types of each column, while summary() provides statistical information such as the minimum, maximum, mean, and median of numerical variables.
+
+h. Is there a difference between shoe size and height? why?
+
+Yes, there may be a relationship between shoe size and height because taller individuals may tend to have larger feet. However, this should be verified using the actual data.
+
+Question #2
+```{r} 
+shoes$Gender <- as.factor(shoes$Gender)
+
+str(shoes)
+levels(shoes$Gender)
+```
+
+Question #3
+This design makes an R Markdown file more reliable because it uses the folder where the file is saved. This allows other users to access the required files more easily when they run the document on their own computers.
+
+Question #4
+```{r}
+str(shoes)
+```
+Answer:
+
+The Gender column is assigned as a character by default when imported using read.csv(). This is expected because gender contains text values. If a numerical column such as ShoeSize is accidentally imported as character, mathematical operations like calculating the mean may not work correctly. 
+
+Question #5
+```{r}
+head(shoesize)
+tail(shoesize)
+
+```
+Answer:
+
+Checking both head() and tail() helps inspect the beginning and ending portions of the dataset. This makes it easier to identify missing values, incorrect entries, or possible data inconsistencies.
+
+Question #6
+```{r}
+cor(shoes$ShoeSize, shoes$Height)
+subset(shoes, ShoeSize >= 11)
+```
+Question #7
+```{r}
+female <- subset(shoes, Gender == "Female")
+male <- subset(shoes, Gender == "Male")
+
+mean(female$Height)
+mean(female$ShoeSize)
+
+mean(male$Height)
+mean(male$ShoeSize)
+```
+Answers:
+
+The mean height and shoe size may differ between male and female groups. Gender could be an important factor to consider when studying the relationship between shoe size and height because the two groups may have different average measurements.
+
+
+
+
+
+
