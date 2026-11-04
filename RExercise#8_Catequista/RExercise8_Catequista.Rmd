@@ -1,0 +1,109 @@
+---
+title: "Basic Oprations - sort(), rank(), and roder()"
+author: "Krystal Catequista"
+date: "2026-11-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Part A - Creating Data Frames
+
+Question #1
+```{r}
+scores <- c(Ana = 78, Ben = 92, Cid = 85, Dex = 92, Eli = 67, Fay = 88, Gio = 74)
+
+scores
+
+sort(scores)
+sort(scores, decreasing = TRUE)
+sort(scores)
+
+subjects <- c("Science", "Math", "English", "Filipino", "PE")
+
+incomplete <- c(85, NA, 90, 70, NA, 95)
+
+sort(subjects)
+
+sort(incomplete)
+
+sort(incomplete, na.last = TRUE)
+```
+Question #2
+
+Yes, the names stayed attached to their correct scores. This is important because when identifying the top performer, we need to know which student received the highest score. Without the correct names, we might identify the wrong student.
+
+Question #3
+
+It can be dangerous because sort() automatically removes NA values by default. We might think that the lowest displayed score represents the complete dataset, even though some students have missing scores. This could lead to incorrect conclusions.
+ 
+Question #4
+```{r}
+order(scores)
+sort(scores)
+
+scores[order(scores)]
+```
+Answer:
+
+order(scores) returns the original positions of the scores arranged in ascending order, while sort(scores) directly returns the sorted values.
+
+a. 
+Answer:
+
+Yes, they have the same values because order() identifies the positions needed to arrange the scores, and indexing uses those positions to display the sorted values.
+
+Question #5
+```{r}
+name <- c("Ana", "Ben", "Cid", "Dex", "Eli", "Fay", "Gio")
+
+score <- c(78, 92, 85, 92, 67, 88, 74)
+
+section <- c("A", "B", "A", "B", "A", "B", "A")
+
+students <- data.frame(name, score, section)
+
+students
+
+students[order(students$score), ]
+
+students[order(students$score, decreasing = TRUE), ]
+```
+Question #6
+
+order(scores) returns the positions of the scores from lowest to highest. It does not directly display the sorted scores. We need to use it to index the original vector or dataframe to get the values arranged in the correct order.
+
+Question #7
+
+sort() only arranges individual values and does not maintain the relationship between different columns in a dataframe. order() is the correct tool because it rearranges the rows based on the scores while keeping each student's name and section together.
+
+Question #8
+```{r}
+rank(scores)
+
+cbind(scores, rank(scores))
+
+
+```
+a. Ben and Dex both received a rank of 6.5.
+
+b. R gives Ben and Dex a rank of 6.5 because they have the same highest score of 92. By default, rank() uses the average ranking method, so it averages positions 6 and 7, resulting in 6.5.
+
+```{r}
+sales <- data.frame(
+  employee = c("Rey", "Sam", "Tin", "Uma", "Val"),
+  units_sold = c(120, 145, 145, 98, 130)
+)
+
+sales$rank <- rank(-sales$units_sold, ties.method = "min")
+
+sales
+
+sales[order(sales$units_sold, decreasing = TRUE), ]
+```
+
+Question #9
+
+No, because order() only determines the positions of values when arranging them. It does not assign rankings to each employee. rank() provides the actual ranking of each value, which is needed to determine the standing of every employee.
